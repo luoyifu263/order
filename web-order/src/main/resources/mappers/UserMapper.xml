@@ -4,25 +4,57 @@
   <resultMap id="BaseResultMap" type="com.vip.weborder.domain.entity.User">
     <!--@mbg.generated-->
     <id column="uid" jdbcType="INTEGER" property="uid" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="phone" jdbcType="VARCHAR" property="phone" />
-    <result column="sex" jdbcType="BOOLEAN" property="sex" />
-    <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="mark" jdbcType="VARCHAR" property="mark" />
-    <result column="last_login" jdbcType="TIMESTAMP" property="lastLogin" />
-    <result column="login_ip" jdbcType="VARCHAR" property="loginIp" />
-    <result column="head" jdbcType="VARCHAR" property="head" />
-    <result column="reg_time" jdbcType="TIMESTAMP" property="regTime" />
-    <result column="locked" jdbcType="BOOLEAN" property="locked" />
-    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    `uid`, username, `password`, phone, sex, email, mark, last_login, login_ip, head, 
-    reg_time, locked, version
+    `uid`, user_name
   </sql>
-<select id="test" resultMap="BaseResultMap">
-  select * from user
-</select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from user
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="uid" keyProperty="uid" parameterType="com.vip.weborder.domain.entity.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user (user_name)
+    values (#{userName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="uid" keyProperty="uid" parameterType="com.vip.weborder.domain.entity.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vip.weborder.domain.entity.User">
+    <!--@mbg.generated-->
+    update user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vip.weborder.domain.entity.User">
+    <!--@mbg.generated-->
+    update user
+    set user_name = #{userName,jdbcType=VARCHAR}
+    where `uid` = #{uid,jdbcType=INTEGER}
+  </update>
 </mapper>

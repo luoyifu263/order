@@ -23,7 +23,7 @@ public class Result<T> {
     public static Result error() {
         Result result = new Result();
         result.setMsg("error");
-        result.setStatus(404);
+        result.setStatus(400);
         return result;
     }
 }
