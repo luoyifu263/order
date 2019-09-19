@@ -1,0 +1,57 @@
+spring:
+  datasource:
+    druid:
+      stat-view-servlet:
+        loginUsername: root
+        loginPassword: root
+    dynamic:
+      datasource:
+        master:
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://120.24.94.104:3316/aaaa?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          druid: #以下均为默认值
+            initial-size: 3
+            max-active: 8
+            min-idle: 2
+            max-wait: -1
+            min-evictable-idle-time-millis: 30000
+            max-evictable-idle-time-millis: 30000
+            time-between-eviction-runs-millis: 0
+            validation-query: select 1
+            validation-query-timeout: -1
+            test-on-borrow: false
+            test-on-return: false
+            test-while-idle: true
+            pool-prepared-statements: true
+            max-open-prepared-statements: 100
+            filters: stat,wall
+            share-prepared-statements: true
+        slave_1:
+          username: root
+          password: root
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://120.24.94.104:3317/aaaa?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          druid: #以下均为默认值
+            initial-size: 3
+            max-active: 8
+            min-idle: 2
+            max-wait: -1
+            min-evictable-idle-time-millis: 30000
+            max-evictable-idle-time-millis: 30000
+            time-between-eviction-runs-millis: 0
+            validation-query: select 1
+            validation-query-timeout: -1
+            test-on-borrow: false
+            test-on-return: false
+            test-while-idle: true
+            pool-prepared-statements: true
+            max-open-prepared-statements: 100
+            filters: stat,wall
+            share-prepared-statements: true
+logging:
+  level:
+    com.vip.weborder.mapper: debug
+mybatis-plus:
+  mapper-locations: classpath:mappers/**/*.xml

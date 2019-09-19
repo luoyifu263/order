@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql://localhost/test?user=root&password=123456&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+      initial-size: 5
+      max-active: 10
+      min-idle: 4
+
+mybatis:
+#  mapper-locations: classpath:mappers/**/*.xml
+  type-aliases-package: com.vip.webordertwo.entity
+logging:
+  level:
+    com.vip.webordertwo.mapper: debug
+mybatis-plus:
+  mapper-locations: classpath:mappers/**/*.xml
+
+
+
+
+
