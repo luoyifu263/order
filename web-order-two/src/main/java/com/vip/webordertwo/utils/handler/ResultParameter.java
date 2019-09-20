@@ -1,4 +1,4 @@
-package com.vip.webordertwo.handler;
+package com.vip.webordertwo.utils.handler;
 
 import org.springframework.web.bind.annotation.Mapping;
 

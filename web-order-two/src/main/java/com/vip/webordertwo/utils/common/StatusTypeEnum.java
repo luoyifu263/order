@@ -1,4 +1,4 @@
-package com.vip.webordertwo.common;
+package com.vip.webordertwo.utils.common;
 
 /**
  * @author zhangwei

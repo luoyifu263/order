@@ -1,7 +1,7 @@
-package com.vip.webordertwo.handler;
+package com.vip.webordertwo.utils.handler;
 
-import com.vip.webordertwo.common.ErrorResult;
-import com.vip.webordertwo.common.SuccessResult;
+import com.vip.webordertwo.utils.common.ErrorResult;
+import com.vip.webordertwo.utils.common.SuccessResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;

@@ -1,8 +1,8 @@
-package com.vip.webordertwo.exep;
+package com.vip.webordertwo.utils.exep;
 
 
-import com.vip.webordertwo.common.ErrorResult;
-import com.vip.webordertwo.common.Result;
+import com.vip.webordertwo.utils.common.ErrorResult;
+import com.vip.webordertwo.utils.common.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

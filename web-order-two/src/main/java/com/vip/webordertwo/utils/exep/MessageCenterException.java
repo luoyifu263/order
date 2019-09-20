@@ -1,4 +1,4 @@
-package com.vip.webordertwo.exep;
+package com.vip.webordertwo.utils.exep;
 
 public class MessageCenterException extends RuntimeException {
 
