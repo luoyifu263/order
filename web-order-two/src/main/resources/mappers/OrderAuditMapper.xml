@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.webordertwo.mapper.OrderAuditMapper">
+  <resultMap id="BaseResultMap" type="com.vip.webordertwo.domain.entity.OrderAudit">
+    <!--@mbg.generated-->
+    <id column="or_audit_id" jdbcType="INTEGER" property="orAuditId" />
+    <result column="order_num" jdbcType="INTEGER" property="orderNum" />
+    <result column="or_audit_state" jdbcType="INTEGER" property="orAuditState" />
+  </resultMap>
+
+  <update id="updateByOrderNum">
+    UPDATE order_audit
+    SET or_audit_state = #{orderStatus}
+    WHERE aaaa.order_audit.order_num = #{orderNum}
+  </update>
+
+  <select id="seletAuditState" resultType="com.vip.webordertwo.domain.entity.OrderAudit">
+    SELECT or_audit_state
+    FROM order_audit
+    WHERE order_num = #{orderNum}
+  </select>
+</mapper>

@@ -13,7 +13,7 @@ public enum OrderStatus {
 
 //    30:卖家发货,没收货;
 //    31 买家发货,没收获;
-
+    // 24 卖家拒绝
 //    34:买家退货中;
 //    40:交易取消;
 
@@ -21,6 +21,7 @@ public enum OrderStatus {
     DEAL(0),
     FULFILL(1),
     APPLY_FORRE_FUND(20),
+    VENDOY_RETUSE(24),
     DELIVER_GOODS_VENDOY(30),
     DELIVER_GOODS_BUYES(31),
     BUYES_RETURNSING(34),

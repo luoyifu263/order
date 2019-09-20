@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.webordertwo.mapper.ShopMapper">
+  <resultMap id="BaseResultMap" type="com.vip.webordertwo.domain.entity.Shop">
+    <!--@mbg.generated-->
+    <id column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="shop_name" jdbcType="VARCHAR" property="shopName" />
+    <result column="shop_maney" jdbcType="DECIMAL" property="shopManey" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    shop_id, shop_name, shop_maney
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from shop
+    where shop_id = #{shopId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from shop
+    where shop_id = #{shopId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="shop_id" keyProperty="shopId" parameterType="com.vip.webordertwo.domain.entity.Shop" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into shop (shop_name, shop_maney)
+    values (#{shopName,jdbcType=VARCHAR}, #{shopManey,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" keyColumn="shop_id" keyProperty="shopId" parameterType="com.vip.webordertwo.domain.entity.Shop" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into shop
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shopName != null">
+        shop_name,
+      </if>
+      <if test="shopManey != null">
+        shop_maney,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shopName != null">
+        #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManey != null">
+        #{shopManey,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vip.webordertwo.domain.entity.Shop">
+    <!--@mbg.generated-->
+    update shop
+    <set>
+      <if test="shopName != null">
+        shop_name = #{shopName,jdbcType=VARCHAR},
+      </if>
+      <if test="shopManey != null">
+        shop_maney = #{shopManey,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where shop_id = #{shopId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vip.webordertwo.domain.entity.Shop">
+    <!--@mbg.generated-->
+    update shop
+    set shop_name = #{shopName,jdbcType=VARCHAR},
+      shop_maney = #{shopManey,jdbcType=DECIMAL}
+    where shop_id = #{shopId,jdbcType=INTEGER}
+  </update>
+</mapper>

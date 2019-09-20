@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.webordertwo.mapper.MerchatMapper">
+  <resultMap id="BaseResultMap" type="com.vip.webordertwo.domain.entity.Merchat">
+    <!--@mbg.generated-->
+    <id column="merchat_id" jdbcType="INTEGER" property="merchatId" />
+    <result column="merchat_name" jdbcType="VARCHAR" property="merchatName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    merchat_id, merchat_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from merchat
+    where merchat_id = #{merchatId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from merchat
+    where merchat_id = #{merchatId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="merchat_id" keyProperty="merchatId" parameterType="com.vip.webordertwo.domain.entity.Merchat" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into merchat (merchat_name)
+    values (#{merchatName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="merchat_id" keyProperty="merchatId" parameterType="com.vip.webordertwo.domain.entity.Merchat" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into merchat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="merchatName != null">
+        merchat_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="merchatName != null">
+        #{merchatName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vip.webordertwo.domain.entity.Merchat">
+    <!--@mbg.generated-->
+    update merchat
+    <set>
+      <if test="merchatName != null">
+        merchat_name = #{merchatName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where merchat_id = #{merchatId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vip.webordertwo.domain.entity.Merchat">
+    <!--@mbg.generated-->
+    update merchat
+    set merchat_name = #{merchatName,jdbcType=VARCHAR}
+    where merchat_id = #{merchatId,jdbcType=INTEGER}
+  </update>
+</mapper>

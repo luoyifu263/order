@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.webordertwo.mapper.OrderReturnMapper">
+  <resultMap id="BaseResultMap" type="com.vip.webordertwo.domain.entity.OrderReturn">
+    <!--@mbg.generated-->
+    <id column="or_return_id" jdbcType="INTEGER" property="orReturnId" />
+    <result column="order_num" jdbcType="INTEGER" property="orderNum" />
+    <result column="or_return_num" jdbcType="INTEGER" property="orReturnNum" />
+    <result column="re_site_id" jdbcType="INTEGER" property="reSiteId" />
+    <result column="or_return_money" jdbcType="DECIMAL" property="orReturnMoney" />
+    <result column="or_return_reason" jdbcType="VARCHAR" property="orReturnReason" />
+    <result column="or_return_type" jdbcType="VARCHAR" property="orReturnType" />
+    <result column="is_out_shop" jdbcType="INTEGER" property="isOutShop" />
+    <result column="or_return_time" jdbcType="TIMESTAMP" property="orReturnTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    or_return_id, order_num, or_return_num, re_site_id, or_return_money, or_return_reason, 
+    or_return_type, is_out_shop, or_return_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from order__return
+    where or_return_id = #{orReturnId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from order__return
+    where or_return_id = #{orReturnId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="or_return_id" keyProperty="orReturnId" parameterType="com.vip.webordertwo.domain.entity.OrderReturn" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into order__return (order_num, or_return_num, re_site_id, 
+      or_return_money, or_return_reason, or_return_type, 
+      is_out_shop, or_return_time)
+    values (#{orderNum,jdbcType=INTEGER}, #{orReturnNum,jdbcType=INTEGER}, #{reSiteId,jdbcType=INTEGER}, 
+      #{orReturnMoney,jdbcType=DECIMAL}, #{orReturnReason,jdbcType=VARCHAR}, #{orReturnType,jdbcType=VARCHAR}, 
+      #{isOutShop,jdbcType=INTEGER}, #{orReturnTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="or_return_id" keyProperty="orReturnId" parameterType="com.vip.webordertwo.domain.entity.OrderReturn" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into order__return
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderNum != null">
+        order_num,
+      </if>
+      <if test="orReturnNum != null">
+        or_return_num,
+      </if>
+      <if test="reSiteId != null">
+        re_site_id,
+      </if>
+      <if test="orReturnMoney != null">
+        or_return_money,
+      </if>
+      <if test="orReturnReason != null">
+        or_return_reason,
+      </if>
+      <if test="orReturnType != null">
+        or_return_type,
+      </if>
+      <if test="isOutShop != null">
+        is_out_shop,
+      </if>
+      <if test="orReturnTime != null">
+        or_return_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderNum != null">
+        #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="orReturnNum != null">
+        #{orReturnNum,jdbcType=INTEGER},
+      </if>
+      <if test="reSiteId != null">
+        #{reSiteId,jdbcType=INTEGER},
+      </if>
+      <if test="orReturnMoney != null">
+        #{orReturnMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="orReturnReason != null">
+        #{orReturnReason,jdbcType=VARCHAR},
+      </if>
+      <if test="orReturnType != null">
+        #{orReturnType,jdbcType=VARCHAR},
+      </if>
+      <if test="isOutShop != null">
+        #{isOutShop,jdbcType=INTEGER},
+      </if>
+      <if test="orReturnTime != null">
+        #{orReturnTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.vip.webordertwo.domain.entity.OrderReturn">
+    <!--@mbg.generated-->
+    update order__return
+    <set>
+      <if test="orderNum != null">
+        order_num = #{orderNum,jdbcType=INTEGER},
+      </if>
+      <if test="orReturnNum != null">
+        or_return_num = #{orReturnNum,jdbcType=INTEGER},
+      </if>
+      <if test="reSiteId != null">
+        re_site_id = #{reSiteId,jdbcType=INTEGER},
+      </if>
+      <if test="orReturnMoney != null">
+        or_return_money = #{orReturnMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="orReturnReason != null">
+        or_return_reason = #{orReturnReason,jdbcType=VARCHAR},
+      </if>
+      <if test="orReturnType != null">
+        or_return_type = #{orReturnType,jdbcType=VARCHAR},
+      </if>
+      <if test="isOutShop != null">
+        is_out_shop = #{isOutShop,jdbcType=INTEGER},
+      </if>
+      <if test="orReturnTime != null">
+        or_return_time = #{orReturnTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where or_return_id = #{orReturnId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.vip.webordertwo.domain.entity.OrderReturn">
+    <!--@mbg.generated-->
+    update order__return
+    set order_num = #{orderNum,jdbcType=INTEGER},
+      or_return_num = #{orReturnNum,jdbcType=INTEGER},
+      re_site_id = #{reSiteId,jdbcType=INTEGER},
+      or_return_money = #{orReturnMoney,jdbcType=DECIMAL},
+      or_return_reason = #{orReturnReason,jdbcType=VARCHAR},
+      or_return_type = #{orReturnType,jdbcType=VARCHAR},
+      is_out_shop = #{isOutShop,jdbcType=INTEGER},
+      or_return_time = #{orReturnTime,jdbcType=TIMESTAMP}
+    where or_return_id = #{orReturnId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.webordertwo.mapper.OrderExpressMapper">
+  <resultMap id="BaseResultMap" type="com.vip.webordertwo.domain.entity.OrderExpress">
+    <!--@mbg.generated-->
+    <id column="or_express_id" jdbcType="INTEGER" property="orExpressId" />
+    <result column="order_num" jdbcType="INTEGER" property="orderNum" />
+    <result column="or_express_num" jdbcType="VARCHAR" property="orExpressNum" />
+    <result column="re_site_id" jdbcType="INTEGER" property="reSiteId" />
+    <result column="or_express_time" jdbcType="TIMESTAMP" property="orExpressTime" />
+    <result column="or_express_delivery_time" jdbcType="TIMESTAMP" property="orExpressDeliveryTime" />
+    <result column="or_express_state" jdbcType="INTEGER" property="orExpressState" />
+  </resultMap>
+
+  <select id="selectState" resultType="com.vip.webordertwo.domain.entity.OrderExpress">
+    SELECT oex.or_express_state
+    FROM order_express oex
+    WHERE oex.order_num = #{orderNum};
+
+  </select>
+
+</mapper>

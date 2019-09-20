@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vip.webordertwo.mapper.OrderTableMapper">
+  <resultMap id="BaseResultMap" type="com.vip.webordertwo.domain.entity.OrderTable">
+    <!--@mbg.generated-->
+    <id column="order_id" jdbcType="INTEGER" property="orderId" />
+    <id column="order_num" jdbcType="INTEGER" property="orderNum" />
+    <result column="shop_id" jdbcType="INTEGER" property="shopId" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="merchant_id" jdbcType="INTEGER" property="merchantId" />
+    <result column="id_pay" jdbcType="INTEGER" property="idPay" />
+    <result column="order_time" jdbcType="TIMESTAMP" property="orderTime" />
+    <result column="shipments_time" jdbcType="TIMESTAMP" property="shipmentsTime" />
+    <result column="return_time" jdbcType="TIMESTAMP" property="returnTime" />
+    <result column="is_return" jdbcType="INTEGER" property="isReturn" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+  </resultMap>
+
+  <update id="updateStatusByOrderNum">
+    UPDATE order_table ot
+    SET ot.order_status = #{status}
+    WHERE ot.order_num = #{orderNum}
+
+  </update>
+
+</mapper>
