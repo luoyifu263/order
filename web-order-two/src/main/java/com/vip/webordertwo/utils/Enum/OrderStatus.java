@@ -29,9 +29,10 @@ public enum OrderStatus {
 
     private int code;
 
-    public int getCode(){
+    public int getCode() {
         return code;
     }
+
     OrderStatus(int code) {
         this.code = code;
     }

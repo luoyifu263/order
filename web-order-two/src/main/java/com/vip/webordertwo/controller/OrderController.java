@@ -5,6 +5,7 @@ import com.vip.webordertwo.service.OrderService;
 import com.vip.webordertwo.utils.handler.ResultParameter;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import javax.annotation.Resource;
 
 /**
@@ -19,12 +20,13 @@ public class OrderController {
 
     /**
      * 交易成功接口
+     *
      * @param orderId
      * @return
      */
     @RequestMapping("/done")
     @ResultParameter
-    public Object dealsAreDone(int orderId){
+    public Object dealsAreDone(int orderId) {
 
         return orderService.fulfillDeal(orderId);
 
@@ -32,12 +34,13 @@ public class OrderController {
 
     /**
      * 卖家同意退款
+     *
      * @param orderNum
      * @return
      */
     @RequestMapping("/approve")
     @ResultParameter
-    public Object approve(int orderNum){
+    public Object approve(int orderNum) {
 
         return orderService.verifiedOrder(orderNum);
 
@@ -45,12 +48,13 @@ public class OrderController {
 
     /**
      * 卖家不同意退款
+     *
      * @param orderNum
      * @return
      */
     @RequestMapping("/refuse")
     @ResultParameter
-    public Object refuse(int orderNum){
+    public Object refuse(int orderNum) {
 
         return orderService.retuseOrder(orderNum);
 
@@ -58,12 +62,13 @@ public class OrderController {
 
     /**
      * 买家申请退款
+     *
      * @param orderReturn
      * @return
      */
     @RequestMapping("/applyQuit")
     @ResultParameter
-    public Object applyQuit(OrderReturn orderReturn){
+    public Object applyQuit(OrderReturn orderReturn) {
         return orderService.applyQuit(orderReturn);
     }
 }

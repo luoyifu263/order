@@ -9,6 +9,7 @@ public interface OrderService {
 
     /**
      * 交易成功接口
+     *
      * @param orderId
      * @return
      */
@@ -17,6 +18,7 @@ public interface OrderService {
 
     /**
      * 卖家同意
+     *
      * @param orderNum
      * @return
      */
@@ -24,6 +26,7 @@ public interface OrderService {
 
     /**
      * 卖家拒绝
+     *
      * @param orderNum
      * @return
      */
@@ -31,6 +34,7 @@ public interface OrderService {
 
     /**
      * 申请退款
+     *
      * @param orderReturn
      * @return
      */

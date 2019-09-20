@@ -9,16 +9,17 @@ public enum StatusTypeEnum {
      * 200为成功
      * 404为错误信息
      */
-    SUCCESS(200,"success"),
-    ERROR(404,"error");
+    SUCCESS(200, "success"),
+    ERROR(404, "error");
 
     private String msg;
     private int status;
 
-    public String getMsg(){
+    public String getMsg() {
         return msg;
     }
-    public int getStatus(){
+
+    public int getStatus() {
         return status;
     }
 

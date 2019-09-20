@@ -52,7 +52,7 @@ public class OrderServiceImpl implements OrderService {
     public int verifiedOrder(int orderNum) {
         OrderAudit orderAudit = orderAuditMapper.seletAuditState(orderNum);
 
-        if(orderAudit.getOrAuditState() != OrderStatus.APPLY_FORRE_FUND.getCode()){
+        if (orderAudit.getOrAuditState() != OrderStatus.APPLY_FORRE_FUND.getCode()) {
             throw new MessageCenterException(WebExceptionEnum.ILLEGAL_ARGS);
         }
 
@@ -64,7 +64,7 @@ public class OrderServiceImpl implements OrderService {
             int auditResult = orderAuditMapper.updateByOrderNum(orderNum, OrderStatus.DEAL_CANCEL.getCode());
             int tableResult = orderTableMapper.updateStatusByOrderNum(orderNum, 0);
 
-            if(auditResult == 0 || tableResult == 0){
+            if (auditResult == 0 || tableResult == 0) {
                 throw new MessageCenterException(WebExceptionEnum.SYS_ERROR);
             }
 
@@ -72,7 +72,7 @@ public class OrderServiceImpl implements OrderService {
 
             int auditResult = orderAuditMapper.updateByOrderNum(orderNum, OrderStatus.BUYES_RETURNS.getCode());
 
-            if(auditResult == 0){
+            if (auditResult == 0) {
                 throw new MessageCenterException(WebExceptionEnum.SYS_ERROR);
             }
 
@@ -84,7 +84,7 @@ public class OrderServiceImpl implements OrderService {
     public int retuseOrder(int orderNum) {
         OrderAudit orderAudit = orderAuditMapper.seletAuditState(orderNum);
 
-        if(orderAudit.getOrAuditState() != OrderStatus.APPLY_FORRE_FUND.getCode()){
+        if (orderAudit.getOrAuditState() != OrderStatus.APPLY_FORRE_FUND.getCode()) {
             throw new MessageCenterException(WebExceptionEnum.ILLEGAL_ARGS);
         }
 
@@ -96,7 +96,7 @@ public class OrderServiceImpl implements OrderService {
     public int applyQuit(OrderReturn orderReturn) {
         OrderAudit orderAudit = orderAuditMapper.seletAuditState(orderReturn.getOrderNum());
 
-        if(orderAudit.getOrAuditState() == OrderStatus.DEAL.getCode()){
+        if (orderAudit.getOrAuditState() == OrderStatus.DEAL.getCode()) {
             throw new MessageCenterException(WebExceptionEnum.ILLEGAL_ARGS);
         }
 
@@ -104,7 +104,7 @@ public class OrderServiceImpl implements OrderService {
 
         int auditResult = orderAuditMapper.updateByOrderNum(orderReturn.getOrderNum(), OrderStatus.APPLY_FORRE_FUND.getCode());
 
-        if (insert == 0 || auditResult == 0){
+        if (insert == 0 || auditResult == 0) {
             throw new MessageCenterException(WebExceptionEnum.ILLEGAL_ARGS);
         }
 
